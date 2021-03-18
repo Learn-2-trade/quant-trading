@@ -15,6 +15,8 @@
 * <a href=https://github.com/je-suis-tm/quant-trading/tree/master/Oil%20Money%20project#colombian-peso-and-vasconia-crude>Colombian Peso and Vasconia Crude</a>
 
 * <a href=https://github.com/je-suis-tm/quant-trading/tree/master/Oil%20Money%20project#discussion>Discussion</a>
+* [Side Notes](#Side-notes)
+	* [Sovereign fund](#svf)
 
 * <a href=https://github.com/je-suis-tm/quant-trading/tree/master/Oil%20Money%20project#further-reading>Further Reading</a>
 ------------------------------------------------
@@ -38,7 +40,14 @@ Okay, enough about bad jokes. You may ask why I talk so much about commodity mar
 
 ### Norwegian Krone and Brent Crude
 
-In the original article by Bloomberg, the first mention is Norwegian Krone. Norway is one of my favorite places in Europe. Unlike Qatar or Saudi Arabia or any other Gulf/OPEC countries, the government doesn't heavily rely on oil or gas for its gross income (even though Equinor formerly Statoil is still a major player in Oslo Stock Exchange). According to <a href=https://en.wikipedia.org/wiki/Economy_of_Norway#Economic_structure_and_sustained_growth>wikipedia</a>, over 60% of GDP is contributed by services in contrast to approximately 30% by industry in 2016 (arguably those services could still be oil-based like Dubai). Norway has established the largest sovereign fund in the world to hedge against oil price decline, ever since the discovery of north sea oil fields. Norway has non-petroleum industries such as fishing, maritime, renewable energy, etc. I doubt if oil price is the major driver of the exchange rate of NOK. I look into <a href=http://www.worldstopexports.com/norways-top-10-exports>international trading statistics</a> of Norway. Apparently, most trading partners are inside European Union. Prior to this report, I include Sterling and Euro into the price evaluation model of NOK. To my surprise, Norway actually does a lot of business with US. Hence, the model regressor consists of EUR, GBP, USD and Brent Crude. 
+In the original article by Bloomberg, the first mention is Norwegian Krone. Norway is one of my favorite places in Europe. Unlike Qatar or Saudi Arabia or any other Gulf/OPEC countries, the government doesn't heavily rely on oil or gas for its gross income (even though Equinor formerly Statoil is still a major player in Oslo Stock Exchange) (why the name change? and why is it a major player, does its fall means the OSLO exchnage index usually falls, is it that impactful?). According to <a href=https://en.wikipedia.org/wiki/Economy_of_Norway#Economic_structure_and_sustained_growth>wikipedia</a>, over 60% of GDP is contributed by services in contrast to approximately 30% by industry in 2016 (arguably those services could still be oil-based like Dubai). 
+
+Time for a break. What does the service sector mean/do in comparison to the industry sector?
+* comprises various service industries including warehousing and transportation services; information services; securities and other investment services; professional services; waste management; health care and social assistance; and arts, entertainment, and recreation. 
+* Countries with economies centered around the service sector are considered more advanced than industrial or agricultural economies.
+
+
+Norway has established the largest sovereign fund in the world to hedge against oil price decline, ever since the discovery of north sea oil fields. Norway has non-petroleum industries such as fishing, maritime(waterborne commerce- it's about moving people and goods over the water), renewable energy, etc. I doubt if oil price is the major driver of the exchange rate of NOK. I look into <a href=http://www.worldstopexports.com/norways-top-10-exports>international trading statistics</a> of Norway. Apparently, most trading partners are inside European Union. Prior to this report, I include Sterling and Euro into the price evaluation model of NOK. To my surprise, Norway actually does a lot of business with US. Hence, the model regressor consists of EUR, GBP, USD and Brent Crude(Brent Crude may refer to any or all of the components of the Brent Complex, a physically and financially traded oil market based around the North Sea of Northwest Europe; colloquially, Brent Crude usually refers to the price of the ICE Brent Crude Oil futures contract or the contract itself. This is from [Wikipedia](https://en.wikipedia.org/wiki/Brent_Crude)). 
 
 After the selection, we have to choose a base currency to evaluate NOK. It should be a stable entity with free floating FX regime with not much economic tie to Norway. I pick the safe haven currency in East Asia, Japanese Yen. In a released report by <a href=https://atlas.media.mit.edu/en/profile/country/nor>OEC</a>, Japan only accounts for less than 2% of exports in 2017 which makes a perfect candidate. Then all regressors in the model would be priced in JPY. Some of you may question why we do not use <a href=https://en.wikipedia.org/wiki/Trade-weighted_effective_exchange_rate_index>trade-weighted exchange rate</a>. Indeed, trade-weighted exchange rate is a better choice as it eliminates all other trading partner currencies in the model. The model can solemnly focus on the exporting commodities. However, the pain point is how to construct such exchange rate index. When we talk about trade weights, do we refer to surplus or deficit or total amount of trade? A country can certainly trade with more than 100 partners. Is it reasonable to include every trading partner currency into the weight? Or at what percentile of trade in values do we cut off the list? Why does that percentile make more sense than the others? Constructing a new index is rather state of art than social science. Obviously, it is easier and more efficient to use a non-trading partner currency for evaluation of all the variables. Hence, our regressor variables become EURJPY, GBPJPY, USDJPY and Brent Crude in JPY. Our regressand variable is NOKJPY.
 
@@ -290,6 +299,14 @@ The heatmap tells a consistent story. The return is independent of stop profit/l
 In this project, the petrocurrency trading does produce lucrative cash in our account but not the way most market analysts proclaim. Many papers which you will find in further reading session have declared that using oil price to forecast petrocurrency is urban legend. We started off with this awfully wrong direction led by market analysts who are only good at being report :monkey: but suck at conducting quantitative analytics. Fortunately, we ended up on the right foot, discovering a great momentum trading strategy. The greatness of this strategy is its market neutrality. It is reasonably immune to market turmoil or bull run.  Moreover, the foundation of this strategy comes from the fundamentals of oil market. Unlike the treasure hunt of tiny anomaly of trading signals, neither the phenomenon will vanish into thin air nor the opportunity will cease to exist when the rest of your competitors catches on to it.
 
 As planned, we have examined three petrocurrencies of free floating FX regime, Norwegian Krone, Russian Ruble, and Colombian Peso. We use solid evidence to debunk the petrocurrency myth of Canadian Dollar. We also strongly advise people to be cautious when dealing with assets from autocratic regimes like Russia. In that sense, we are only left with two options, Norway and Colombia, both alphas are approximately 4%. Well, after such a long time of hard work, perhaps now we deserve an Emirati feast generated by oil wealth.
+
+# Side Notes <a name="Side-notes"></a>
+
+* Petrobras scandal(s)
+* Vale is defacto privatized
+
+## Sovereign fund<a name="svf"></a>
+
 
 ### Further Reading
 
